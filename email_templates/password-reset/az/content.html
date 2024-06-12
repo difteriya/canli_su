@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style type="text/css" rel="stylesheet" media="all">
+      /* Base ------------------------------ */
+
+      @import url("https://fonts.googleapis.com/css?family=Inter:400,700&display=swap");
+      body {
+        width: 100% !important;
+        height: 100%;
+        margin: 0;
+        -webkit-text-size-adjust: none;
+        background-color: #eee;
+      }
+
+      a {
+        color: #1a1a1a;
+      }
+
+      a img {
+        border: none;
+      }
+
+      td {
+        word-break: break-word;
+      }
+
+      body,
+      td,
+      th {
+        font-family: "Inter", Helvetica, Arial, sans-serif;
+      }
+
+      .email-wrapper {
+        background-color: white;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        max-width: 570px;
+        width: 100%;
+        margin: 30px auto;
+        padding: 20px;
+      }
+    </style>
+    <!--[if mso]>
+      <style type="text/css">
+        .f-fallback {
+          font-family: Arial, sans-serif;
+        }
+      </style>
+    <![endif]-->
+  </head>
+  <body>
+    <table
+      class="email-wrapper"
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      role="presentation"
+    >
+      <tr>
+        <td style="padding: 15px 0">
+          <img height="40" src="https://canlisu.az/logo.png" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h1 style="font-size: 24px; font-weight: bold">Salam, {{name}}</h1>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            Canlisu.az hesabınız üçün şifrənin pərpası üçün sorğu aldıq. Onu
+            sıfırlamaq üçün aşağıdakı düymədən istifadə edin. Bu şifrə sıfırlama
+            yalnız növbəti 24 saat ərzində etibarlıdır.
+          </p>
+
+          <a
+            target="_blank"
+            href="{{action_url}}"
+            style="
+              padding: 12px 16px;
+              font-size: 18px;
+              text-decoration: none;
+              background-color: #3db7e7;
+              color: #fff;
+              display: inline-block;
+              border-radius: 5px;
+              font-weight: bold;
+              margin-bottom: 15px;
+            "
+          >
+            Şifrəni sıfırla
+          </a>
+          <p style="margin-bottom: 40px">
+            Bu e-poçtu tələb etməmisinizsə, narahat olacaq bir şey yoxdur - siz
+            Təhlükəsiz göz ardı edə bilərsiniz.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td
+          align="center"
+          style="border-top: 1px solid #eee; padding-top: 15px"
+        >
+          <p style="font-size: 14px; color: #666">
+            © 2021 - Sent by
+            <a
+              style="text-decoration: underline"
+              href="https://canlisu.az"
+              target="_blank"
+              >canlisu.az</a
+            >
+          </p>
+          <!-- <p style="font-size: 14px; color: #666">
+            Bakı şəhəri, Yasamal r., H. Zərdabi küç. 92a
+          </p> -->
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Purchase</title>
+    <style type="text/css" rel="stylesheet" media="all">
+      *,
+      ::before,
+      ::after {
+        border-color: rgb(204, 206, 209);
+        border-style: solid;
+        border-width: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100% !important;
+        height: 100%;
+        margin: 0;
+        -webkit-text-size-adjust: none;
+      }
+
+      a {
+        color: #0051ff;
+      }
+
+      a img {
+        border: none;
+      }
+
+      td {
+        word-break: break-word;
+        vertical-align: top;
+      }
+
+      /* Type ------------------------------ */
+
+      body,
+      td,
+      th {
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      .container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 768px !important;
+        margin: 15px 0 55px 0;
+      }
+
+      .text-2xl {
+        font-size: 1.5rem !important;
+        line-height: 2rem !important;
+      }
+      .text-sm {
+        font-size: 0.875rem !important;
+        line-height: 1.25rem !important;
+      }
+
+      .text-xs {
+        font-size: 0.75rem !important;
+        line-height: 1rem !important;
+      }
+
+      .font-semibold {
+        font-weight: 700 !important;
+      }
+
+      .mt-5 {
+        margin-top: 1.25rem !important;
+      }
+
+      .my-3 {
+        margin-top: 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+      .pb-1\.5 {
+        padding-bottom: 0.375rem !important;
+      }
+      .w-full {
+        width: 100% !important;
+      }
+      .justify-between {
+        justify-content: space-between !important;
+      }
+
+      .flex {
+        display: flex !important;
+      }
+
+      .text-left {
+        text-align: left !important;
+      }
+
+      .text-right {
+        text-align: right !important;
+      }
+
+      .py-2\.5 {
+        padding-top: 0.625rem !important;
+        padding-bottom: 0.625rem !important;
+      }
+      .text-sm {
+        font-size: 0.875rem !important;
+        line-height: 1.25rem !important;
+      }
+
+      .border-b {
+        border-bottom-width: 1px !important;
+      }
+
+      .text-center {
+        text-align: center !important;
+      }
+
+      .py-3 {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+      }
+      .my-5 {
+        margin-top: 1.25rem !important;
+        margin-bottom: 1.25rem !important;
+      }
+      .text-lg {
+        font-size: 1.125rem !important;
+        line-height: 1.75rem !important;
+      }
+      .border {
+        border-width: 1px !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table class="container w-full my-3">
+      <tr>
+        <td>
+          <span class="text-2xl font-semibold">Purchase Order #P{{pid}}</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="my-3">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2" class="pb-1.5">
+          <span class="font-semibold">PO Date:</span>
+          <span>{{purchase_date}}</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="pb-1.5">
+          <span class="font-semibold">Expected on:</span>
+          <span>{{expected_on}}</span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="pb-1.5">
+          <span class="font-semibold">Ordered by:</span>
+          <span>{{user_name}}</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="my-3">&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="pb-1.5">
+          <span class="font-semibold">Deliver To:</span>
+          <u>{{location.name}}</u>
+        </td>
+        <td class="pb-1.5">
+          <span class="font-semibold">Vendor:</span> <u>{{vendor.name}}</u>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <i>{{location.address}}<br />{{location.phone}} </i>
+        </td>
+        <td>
+          <i>{{vendor.address}}<br />{{vendor.phone}} </i>
+        </td>
+      </tr>
+      <tr>
+        <td class="my-3">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table class="w-full">
+            <thead>
+              <tr>
+                <th class="border-b py-2.5 text-sm font-semibold text-left">
+                  Item
+                </th>
+                <th class="border-b py-2.5 text-sm font-semibold text-right">
+                  Quantity
+                </th>
+                <th class="border-b py-2.5 text-sm font-semibold text-right">
+                  Price
+                </th>
+                <th class="border-b py-2.5 text-sm font-semibold text-right">
+                  Amount
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each items}}
+              <tr>
+                <td class="border-b py-2.5">{{name}}</td>
+                <td class="border-b py-2.5 text-right">
+                  <span>{{quantity}}</span>
+                  <span class="text-xs">{{unit}}</span>
+                </td>
+                <td class="border-b py-2.5 text-right">
+                  <span>{{../currency}}</span> <span>{{cost}}</span>
+                </td>
+                <td class="border-b py-2.5 text-right">
+                  <span>{{../currency}}</span> <span>{{amount}}</span>
+                  <span class="text-xs">{{unit}}</span>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4" class="text-right py-3">
+                  <span class="font-semibold">Total: </span>
+                  <span>{{currency}}</span> <span>{{sub_total}}</span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
