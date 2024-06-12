@@ -1,0 +1,356 @@
+.btn {
+  @apply transition-all bg-th-700 border-0 relative pointer-events-auto select-none rounded-md inline-flex items-center gap-2 h-9 px-3 text-sm font-semibold   shadow;
+
+  &.btn-lg {
+    @apply h-12 px-6 text-base;
+  }
+
+  &.btn-primary {
+    @apply bg-th-600 hover:bg-th-700/75 active:bg-th-700 text-white bg-gradient-to-tr from-th-700/75 to-th-600;
+  }
+
+  &.btn-bordered {
+    @apply bg-transparent shadow-none border   border-gray-200 hover:border-gray-300 hover:text-th-700/75 active:border-th-700/75;
+  }
+}
+
+.footer-link-list {
+  li {
+    @apply mb-3 block;
+    a {
+      @apply inline-block pb-1 relative hover:text-th-600 transition-all;
+      &:before {
+        @apply bg-th-600;
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 1px;
+        left: 0px;
+        bottom: 4px;
+        transition: all 500ms ease;
+      }
+      &:hover:before {
+        width: 100%;
+      }
+    }
+  }
+}
+
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+.f-divider {
+  background-repeat: repeat-x;
+  position: relative;
+  height: 60px;
+  width: 100%;
+  opacity: 0.1;
+  background-size: 300px 60px;
+  background-image: url("data:image/svg+xml,%3Csvg version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 60' width='300' height='30' %3E%3Cpath fill='none' stroke='%23fff' strokeWidth='10' d='m0 40c30 0 45-20 75-20 30 0 45 20 75 20 30 0 45-20 75-20 30 0 45 20 75 20' /%3E%3C/svg%3E");
+}
+
+.splide__slide {
+  @apply flex items-center justify-between;
+
+  .c3,
+  .c4,
+  .c5,
+  .c1 {
+    @apply opacity-0;
+  }
+
+  .cw {
+    @apply text-th-800;
+    .c1 {
+      @apply fill-white/75;
+    }
+    .c5 {
+      @apply flex bg-th-700 text-white items-center justify-center rounded-full text-sm font-medium border-2 border-transparent px-6 h-12 cursor-pointer hover:bg-th-700/75  transition-colors;
+    }
+    &.cw-black {
+      @apply text-white;
+      .c5 {
+        @apply text-white border-white bg-transparent hover:text-th-700 hover:bg-white;
+      }
+      .c1 {
+        @apply fill-th-700/75;
+      }
+    }
+  }
+  &.is-active {
+    .c3,
+    .c4 {
+      animation: fadeInLeft;
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+      animation-delay: 150ms;
+    }
+    .c1 {
+      animation: fadeInLeftBig;
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+      animation-delay: 0ms;
+    }
+    .c4 {
+      animation-delay: 300ms;
+    }
+
+    .c5 {
+      animation: fadeInUp;
+      animation-duration: 0.5s;
+      animation-fill-mode: both;
+      animation-delay: 450ms;
+    }
+
+    // img {
+    //   animation: zoomIn;
+    //   animation-duration: 0.3s;
+    //   animation-fill-mode: both;
+    //   // animation-delay: 100ms;
+    // }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-50px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeftBig {
+  from {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+.splide__arrows {
+  width: 84px;
+  @apply flex justify-between absolute right-1 bottom-1  h-10   overflow-hidden;
+}
+
+.splide .splide__arrow {
+  @apply bg-white  rounded   w-10 h-10 transform-none bottom-0  absolute  cursor-pointer flex items-center justify-center   disabled:opacity-50 disabled:cursor-default;
+  &:hover {
+    @apply text-white bg-th-800;
+  }
+  svg {
+  }
+}
+.splide__arrow.splide__arrow--prev {
+  left: 0;
+}
+.splide__arrow.splide__arrow--next {
+  right: 0;
+}
+
+[data-reach-slider-input][data-orientation="horizontal"],
+[data-reach-slider-track][data-orientation="horizontal"] {
+  height: 3px !important;
+}
+
+.thumb {
+  height: 30px;
+  width: 30px;
+  top: -44px;
+  margin-left: -16px;
+  text-align: center;
+  transform: scale(1);
+  transform-origin: bottom;
+  transition: transform 0.2s ease-in-out;
+}
+
+.thumb,
+.thumb:after {
+  position: absolute;
+  display: block;
+  border-radius: 50% 50% 50% 0;
+}
+
+.thumb:after {
+  @apply bg-th-600/75;
+  content: "";
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transform: rotate(-45deg);
+
+  z-index: -1;
+}
+
+.thumb .thumb-value {
+  display: block;
+  font-size: 12px;
+  line-height: 30px;
+  color: #fff;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.banner-anim-arrow-default {
+  background-color: transparent !important;
+  &.prev {
+    left: 30px !important;
+  }
+  &.next {
+    right: 30px !important;
+  }
+}
+
+.banner-elem {
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-anim-elem .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+@keyframes move_wave {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.55);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
+}
+.waveWrapper {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+.waveWrapperInner {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  bottom: -1px;
+}
+.bgTop {
+  z-index: 15;
+}
+.bgMiddle {
+  z-index: 10;
+}
+.bgBottom {
+  z-index: 5;
+}
+.wave {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat no-repeat;
+  background-position: 0 bottom;
+  transform-origin: center bottom;
+}
+
+.waveMiddle {
+  background-size: 50% 120px;
+}
+.waveAnimation .waveMiddle {
+  animation: move_wave 8s linear infinite;
+}
+.waveBottom {
+  background-size: 50% 100px;
+}
+.waveAnimation .waveBottom {
+  animation: move_wave 10s linear infinite;
+}
+
+.wave {
+  animation: wave 3s linear;
+  animation-iteration-count: infinite;
+  @apply fill-th-800;
+}
+
+#wave2 {
+  animation-duration: 5s;
+  animation-direction: reverse;
+  @apply fill-th-600/40;
+}
+
+#wave3 {
+  animation-duration: 7s;
+  @apply fill-th-600/20;
+}
+
+@-webkit-keyframes wave {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes wave {
+  to {
+    transform: translateX(-100%);
+  }
+}
